@@ -1,8 +1,13 @@
 package com.driver.EntryDto;
 
+
 public class ProductionHouseEntryDto {
 
     private String name;
+
+
+    public ProductionHouseEntryDto() {
+    }
 
     public ProductionHouseEntryDto(String name) {
         this.name = name;

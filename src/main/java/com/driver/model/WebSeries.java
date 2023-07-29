@@ -1,14 +1,9 @@
 package com.driver.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -25,6 +20,7 @@ public class WebSeries {
 
     private double rating;
 
+    @Enumerated(value = EnumType.STRING)
     private SubscriptionType subscriptionType; //This denotes with which of subscriptionType this webseries comes ie. BASIC,PRO, ELITE
 
     @ManyToOne
