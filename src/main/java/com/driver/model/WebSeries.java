@@ -1,8 +1,5 @@
 package com.driver.model;
 
-
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-
 import javax.persistence.*;
 
 @Entity

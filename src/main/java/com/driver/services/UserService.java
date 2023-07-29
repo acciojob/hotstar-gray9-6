@@ -2,8 +2,6 @@ package com.driver.services;
 
 
 import com.driver.exception.UserDoesNotExists;
-import com.driver.model.Subscription;
-import com.driver.model.SubscriptionType;
 import com.driver.model.User;
 import com.driver.model.WebSeries;
 import com.driver.repository.UserRepository;
