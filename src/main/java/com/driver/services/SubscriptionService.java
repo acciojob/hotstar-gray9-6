@@ -64,7 +64,14 @@ public class SubscriptionService {
         //If you are already at an ElITE subscription : then throw Exception ("Already the best Subscription")
         //In all other cases just try to upgrade the subscription and tell the difference of price that user has to pay
         //update the subscription in the repository
-        User user = userRepository.findById(userId).get();
+        Optional<User> userOptional = userRepository.findById(userId);
+        if(!userOptional.isPresent()){
+            throw new UserDoesNotExists("Invalid User id");
+        }
+
+        // if it exists then get the user
+        User user = userOptional.get();
+
         SubscriptionType subscriptionType = user.getSubscription().getSubscriptionType();
         if(subscriptionType.equals(SubscriptionType.ELITE)){
             throw new AlreadyHaveBestSubscription("Already the best Subscription");
@@ -98,6 +105,9 @@ public class SubscriptionService {
         //We need to find out total Revenue of hotstar : from all the subscriptions combined
         //Hint is to use findAll function from the SubscriptionDb
         List<Subscription> subscriptionList = subscriptionRepository.findAll();
+        if(subscriptionList.isEmpty()){
+            throw new RuntimeException("Subscription List is Empty");
+        }
 
         Integer totalRevenue = 0;
         for (Subscription subscription : subscriptionList){
